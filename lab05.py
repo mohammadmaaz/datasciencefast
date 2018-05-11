@@ -1,52 +1,32 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[40]:
 
 import pandas as pd
 
 
-# In[2]:
+# In[41]:
 
-df = pd.read_csv('u.data',header=None,delimiter='\t')
-
-
-# In[3]:
-
-print(df.head())
+df = pd.read_csv('u.data',header=None,delimiter='\t',names = ['userId', 'movieId', 'rating','timestamp'])
 
 
-# In[4]:
+# In[42]:
 
-#Second Column is for rating
-
-
-# In[5]:
-
-rating = df.loc[:,2]
+df.head(3)
 
 
-# In[6]:
+# In[43]:
 
-rating[0]
-
-
-# In[7]:
-
-df.info()
+rating = df.loc[:,'rating']
 
 
-# In[8]:
-
-len(rating)
-
-
-# In[9]:
+# In[44]:
 
 storerating = []
 
 
-# In[10]:
+# In[45]:
 
 for rate in rating:
     if rate <=3:
@@ -55,14 +35,84 @@ for rate in rating:
         storerating.append(1)
 
 
-# In[11]:
+# In[46]:
 
 len(storerating)
 
 
-# In[12]:
+# In[47]:
 
-storerating[0]
+x = 0
+y = 0
+for c in storerating:
+    if(c == 0):
+        x +=1
+    else:
+        y +=1
+
+
+# In[48]:
+
+print("Less than equal to 3 : %d",x)
+print("Greater than equal to 3 : %d",y)
+
+
+# In[49]:
+
+sampleten = []
+
+
+# In[50]:
+
+storerating_len = len(storerating)
+
+
+# In[51]:
+
+storerating_len
+
+
+# In[52]:
+
+for i in range(0,storerating_len,10):
+    sampleten.append(storerating[i])
+
+
+# In[53]:
+
+len(sampleten)
+
+
+# In[54]:
+
+10000/100000
+
+
+# In[55]:
+
+1/10
+
+
+# In[56]:
+
+x = 0
+y = 0
+for c in sampleten:
+    if(c == 0):
+        x +=1
+    else:
+        y +=1
+
+
+# In[57]:
+
+print("Sample of 10000 Less than equal to 3 : %d",x)
+print("Sample of 10000 Greater than equal to 3 : %d",y)
+
+
+# In[ ]:
+
+
 
 
 # In[ ]:
